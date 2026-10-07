@@ -23,7 +23,7 @@ class Recipient:
         self.doses_received = 0
         Recipient.total_recipients += 1
 
-    # ---- Instance methods (Task 3) ----
+    # ---- Instance methods ----
     def record_dose(self):
         """Record one dose, without exceeding the required number."""
         if self.doses_received < self.vaccine.doses_required:
@@ -39,14 +39,14 @@ class Recipient:
         print(f"{self.recipient_id} | {self.age_group:<6} | {self.vaccine.name} | "
               f"{self.doses_received}/{self.vaccine.doses_required} doses | {status}")
 
-    # ---- Class method (Task 3) ----
+    # ---- Class method  ----
     @classmethod
     def from_string(cls, text, vaccine):
         """Build a Recipient from a simple 'R001,adult' string."""
         recipient_id, age_group = text.split(",")
         return cls(recipient_id.strip(), age_group.strip(), vaccine)
 
-    # ---- Static method (Task 3) ----
+    # ---- Static method  ----
     @staticmethod
     def is_valid_id(recipient_id):
         """Utility check - needs no access to class or instance data."""
